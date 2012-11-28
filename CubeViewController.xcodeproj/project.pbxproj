@@ -16,8 +16,8 @@
 		D8B32BD116669A0A00E5DBFB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD016669A0A00E5DBFB /* Default.png */; };
 		D8B32BD316669A0A00E5DBFB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD216669A0A00E5DBFB /* Default@2x.png */; };
 		D8B32BD516669A0A00E5DBFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD416669A0A00E5DBFB /* Default-568h@2x.png */; };
-		D8B32BD816669A0A00E5DBFB /* GKLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B32BD716669A0A00E5DBFB /* GKLViewController.m */; };
-		D8B32BDB16669A0A00E5DBFB /* GKLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD916669A0A00E5DBFB /* GKLViewController.xib */; };
+		D8B32BD816669A0A00E5DBFB /* GKLCubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B32BD716669A0A00E5DBFB /* GKLCubeViewController.m */; };
+		D8B32BE216669BC700E5DBFB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32BE116669BC700E5DBFB /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +34,9 @@
 		D8B32BD016669A0A00E5DBFB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D8B32BD216669A0A00E5DBFB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D8B32BD416669A0A00E5DBFB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D8B32BD616669A0A00E5DBFB /* GKLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLViewController.h; sourceTree = "<group>"; };
-		D8B32BD716669A0A00E5DBFB /* GKLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLViewController.m; sourceTree = "<group>"; };
-		D8B32BDA16669A0A00E5DBFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GKLViewController.xib; sourceTree = "<group>"; };
+		D8B32BD616669A0A00E5DBFB /* GKLCubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLCubeViewController.h; sourceTree = "<group>"; };
+		D8B32BD716669A0A00E5DBFB /* GKLCubeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLCubeViewController.m; sourceTree = "<group>"; };
+		D8B32BE116669BC700E5DBFB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B32BE216669BC700E5DBFB /* QuartzCore.framework in Frameworks */,
 				D8B32BBF16669A0A00E5DBFB /* UIKit.framework in Frameworks */,
 				D8B32BC116669A0A00E5DBFB /* Foundation.framework in Frameworks */,
 				D8B32BC316669A0A00E5DBFB /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +57,7 @@
 		D8B32BAF16669A0A00E5DBFB = {
 			isa = PBXGroup;
 			children = (
+				D8B32BE116669BC700E5DBFB /* QuartzCore.framework */,
 				D8B32BC416669A0A00E5DBFB /* CubeViewController */,
 				D8B32BBD16669A0A00E5DBFB /* Frameworks */,
 				D8B32BBB16669A0A00E5DBFB /* Products */,
@@ -85,9 +87,8 @@
 			children = (
 				D8B32BCD16669A0A00E5DBFB /* GKLAppDelegate.h */,
 				D8B32BCE16669A0A00E5DBFB /* GKLAppDelegate.m */,
-				D8B32BD616669A0A00E5DBFB /* GKLViewController.h */,
-				D8B32BD716669A0A00E5DBFB /* GKLViewController.m */,
-				D8B32BD916669A0A00E5DBFB /* GKLViewController.xib */,
+				D8B32BD616669A0A00E5DBFB /* GKLCubeViewController.h */,
+				D8B32BD716669A0A00E5DBFB /* GKLCubeViewController.m */,
 				D8B32BC516669A0A00E5DBFB /* Supporting Files */,
 			);
 			path = CubeViewController;
@@ -163,7 +164,6 @@
 				D8B32BD116669A0A00E5DBFB /* Default.png in Resources */,
 				D8B32BD316669A0A00E5DBFB /* Default@2x.png in Resources */,
 				D8B32BD516669A0A00E5DBFB /* Default-568h@2x.png in Resources */,
-				D8B32BDB16669A0A00E5DBFB /* GKLViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +176,7 @@
 			files = (
 				D8B32BCB16669A0A00E5DBFB /* main.m in Sources */,
 				D8B32BCF16669A0A00E5DBFB /* GKLAppDelegate.m in Sources */,
-				D8B32BD816669A0A00E5DBFB /* GKLViewController.m in Sources */,
+				D8B32BD816669A0A00E5DBFB /* GKLCubeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +189,6 @@
 				D8B32BC816669A0A00E5DBFB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D8B32BD916669A0A00E5DBFB /* GKLViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8B32BDA16669A0A00E5DBFB /* en */,
-			);
-			name = GKLViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

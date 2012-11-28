@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class GKLViewController;
+@class GKLCubeViewController;
 
 @interface GKLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) GKLViewController *viewController;
+@property (strong, nonatomic) GKLCubeViewController *viewController;
 
 @end

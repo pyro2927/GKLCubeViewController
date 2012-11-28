@@ -8,7 +8,7 @@
 
 #import "GKLAppDelegate.h"
 
-#import "GKLViewController.h"
+#import "GKLCubeViewController.h"
 
 @implementation GKLAppDelegate
 
@@ -16,9 +16,18 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[GKLViewController alloc] initWithNibName:@"GKLViewController" bundle:nil];
+    self.viewController = [[GKLCubeViewController alloc] initWithNibName:nil bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor blueColor], [UIColor greenColor], [UIColor yellowColor], [UIColor blackColor], nil];
+    for (UIColor *color in colors) {
+        UIViewController *vc = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+        [vc.view setBackgroundColor:color];
+        [self.viewController addView:vc.view];
+    }
+    
     return YES;
 }
 
