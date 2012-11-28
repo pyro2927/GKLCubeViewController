@@ -8,8 +8,8 @@
 
 #import "GKLCubeViewController.h"
 
-#define kPerspective    -1/1000.0f
-#define kDuration       0.7f
+#define kPerspective    -0.001f
+#define kDuration       0.0f
 
 @interface GKLCubeViewController ()
 
@@ -29,10 +29,9 @@
     transform = CATransform3DTranslate(transform, 0, 0, halfWidth);
     newView.layer.transform = transform;
     [self.view addSubview:newView];
-    newView.alpha = 0.5f;
+    newView.alpha = 0.7f;
     [views addObject:newView];
     [newView setNeedsDisplay];
-//    [self.view setNeedsLayout];
 }
 
 - (void)viewDidLoad{
