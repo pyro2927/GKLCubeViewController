@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8B32BBF16669A0A00E5DBFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32BBE16669A0A00E5DBFB /* UIKit.framework */; };
+		D8B32BC116669A0A00E5DBFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32BC016669A0A00E5DBFB /* Foundation.framework */; };
+		D8B32BC316669A0A00E5DBFB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32BC216669A0A00E5DBFB /* CoreGraphics.framework */; };
+		D8B32BC916669A0A00E5DBFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BC716669A0A00E5DBFB /* InfoPlist.strings */; };
+		D8B32BCB16669A0A00E5DBFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B32BCA16669A0A00E5DBFB /* main.m */; };
+		D8B32BCF16669A0A00E5DBFB /* GKLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B32BCE16669A0A00E5DBFB /* GKLAppDelegate.m */; };
+		D8B32BD116669A0A00E5DBFB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD016669A0A00E5DBFB /* Default.png */; };
+		D8B32BD316669A0A00E5DBFB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD216669A0A00E5DBFB /* Default@2x.png */; };
+		D8B32BD516669A0A00E5DBFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD416669A0A00E5DBFB /* Default-568h@2x.png */; };
+		D8B32BD816669A0A00E5DBFB /* GKLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B32BD716669A0A00E5DBFB /* GKLViewController.m */; };
+		D8B32BDB16669A0A00E5DBFB /* GKLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD916669A0A00E5DBFB /* GKLViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D8B32BBA16669A0A00E5DBFB /* CubeViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B32BBE16669A0A00E5DBFB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D8B32BC016669A0A00E5DBFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D8B32BC216669A0A00E5DBFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D8B32BC616669A0A00E5DBFB /* CubeViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CubeViewController-Info.plist"; sourceTree = "<group>"; };
+		D8B32BC816669A0A00E5DBFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D8B32BCA16669A0A00E5DBFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D8B32BCC16669A0A00E5DBFB /* CubeViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CubeViewController-Prefix.pch"; sourceTree = "<group>"; };
+		D8B32BCD16669A0A00E5DBFB /* GKLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLAppDelegate.h; sourceTree = "<group>"; };
+		D8B32BCE16669A0A00E5DBFB /* GKLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLAppDelegate.m; sourceTree = "<group>"; };
+		D8B32BD016669A0A00E5DBFB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D8B32BD216669A0A00E5DBFB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D8B32BD416669A0A00E5DBFB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D8B32BD616669A0A00E5DBFB /* GKLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLViewController.h; sourceTree = "<group>"; };
+		D8B32BD716669A0A00E5DBFB /* GKLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLViewController.m; sourceTree = "<group>"; };
+		D8B32BDA16669A0A00E5DBFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GKLViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8B32BB716669A0A00E5DBFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8B32BBF16669A0A00E5DBFB /* UIKit.framework in Frameworks */,
+				D8B32BC116669A0A00E5DBFB /* Foundation.framework in Frameworks */,
+				D8B32BC316669A0A00E5DBFB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8B32BAF16669A0A00E5DBFB = {
+			isa = PBXGroup;
+			children = (
+				D8B32BC416669A0A00E5DBFB /* CubeViewController */,
+				D8B32BBD16669A0A00E5DBFB /* Frameworks */,
+				D8B32BBB16669A0A00E5DBFB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8B32BBB16669A0A00E5DBFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8B32BBA16669A0A00E5DBFB /* CubeViewController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8B32BBD16669A0A00E5DBFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8B32BBE16669A0A00E5DBFB /* UIKit.framework */,
+				D8B32BC016669A0A00E5DBFB /* Foundation.framework */,
+				D8B32BC216669A0A00E5DBFB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8B32BC416669A0A00E5DBFB /* CubeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D8B32BCD16669A0A00E5DBFB /* GKLAppDelegate.h */,
+				D8B32BCE16669A0A00E5DBFB /* GKLAppDelegate.m */,
+				D8B32BD616669A0A00E5DBFB /* GKLViewController.h */,
+				D8B32BD716669A0A00E5DBFB /* GKLViewController.m */,
+				D8B32BD916669A0A00E5DBFB /* GKLViewController.xib */,
+				D8B32BC516669A0A00E5DBFB /* Supporting Files */,
+			);
+			path = CubeViewController;
+			sourceTree = "<group>";
+		};
+		D8B32BC516669A0A00E5DBFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8B32BC616669A0A00E5DBFB /* CubeViewController-Info.plist */,
+				D8B32BC716669A0A00E5DBFB /* InfoPlist.strings */,
+				D8B32BCA16669A0A00E5DBFB /* main.m */,
+				D8B32BCC16669A0A00E5DBFB /* CubeViewController-Prefix.pch */,
+				D8B32BD016669A0A00E5DBFB /* Default.png */,
+				D8B32BD216669A0A00E5DBFB /* Default@2x.png */,
+				D8B32BD416669A0A00E5DBFB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8B32BB916669A0A00E5DBFB /* CubeViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8B32BDE16669A0A00E5DBFB /* Build configuration list for PBXNativeTarget "CubeViewController" */;
+			buildPhases = (
+				D8B32BB616669A0A00E5DBFB /* Sources */,
+				D8B32BB716669A0A00E5DBFB /* Frameworks */,
+				D8B32BB816669A0A00E5DBFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CubeViewController;
+			productName = CubeViewController;
+			productReference = D8B32BBA16669A0A00E5DBFB /* CubeViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8B32BB116669A0A00E5DBFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GKL;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "GoKart Labs";
+			};
+			buildConfigurationList = D8B32BB416669A0A00E5DBFB /* Build configuration list for PBXProject "CubeViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D8B32BAF16669A0A00E5DBFB;
+			productRefGroup = D8B32BBB16669A0A00E5DBFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8B32BB916669A0A00E5DBFB /* CubeViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8B32BB816669A0A00E5DBFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8B32BC916669A0A00E5DBFB /* InfoPlist.strings in Resources */,
+				D8B32BD116669A0A00E5DBFB /* Default.png in Resources */,
+				D8B32BD316669A0A00E5DBFB /* Default@2x.png in Resources */,
+				D8B32BD516669A0A00E5DBFB /* Default-568h@2x.png in Resources */,
+				D8B32BDB16669A0A00E5DBFB /* GKLViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8B32BB616669A0A00E5DBFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8B32BCB16669A0A00E5DBFB /* main.m in Sources */,
+				D8B32BCF16669A0A00E5DBFB /* GKLAppDelegate.m in Sources */,
+				D8B32BD816669A0A00E5DBFB /* GKLViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D8B32BC716669A0A00E5DBFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8B32BC816669A0A00E5DBFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D8B32BD916669A0A00E5DBFB /* GKLViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8B32BDA16669A0A00E5DBFB /* en */,
+			);
+			name = GKLViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8B32BDC16669A0A00E5DBFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D8B32BDD16669A0A00E5DBFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8B32BDF16669A0A00E5DBFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CubeViewController/CubeViewController-Prefix.pch";
+				INFOPLIST_FILE = "CubeViewController/CubeViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D8B32BE016669A0A00E5DBFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CubeViewController/CubeViewController-Prefix.pch";
+				INFOPLIST_FILE = "CubeViewController/CubeViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8B32BB416669A0A00E5DBFB /* Build configuration list for PBXProject "CubeViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8B32BDC16669A0A00E5DBFB /* Debug */,
+				D8B32BDD16669A0A00E5DBFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8B32BDE16669A0A00E5DBFB /* Build configuration list for PBXNativeTarget "CubeViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8B32BDF16669A0A00E5DBFB /* Debug */,
+				D8B32BE016669A0A00E5DBFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8B32BB116669A0A00E5DBFB /* Project object */;
+}
