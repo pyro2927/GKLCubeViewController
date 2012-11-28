@@ -18,6 +18,9 @@
 @implementation GKLCubeViewController
 
 -(void)addView:(UIView*)newView{
+    if ([views count] >= 4) {
+        return;
+    }
     newView.frame = CGRectMake(0, 0, newView.frame.size.width, newView.frame.size.height);
     double halfWidth = self.view.bounds.size.width / 2.0;
 //    CGFloat perspective = kPerspective;
@@ -28,8 +31,10 @@
     transform = CATransform3DRotate(transform, rotationDistance - 0., 0, 1, 0);
     transform = CATransform3DTranslate(transform, 0, 0, halfWidth);
     newView.layer.transform = transform;
-    [self.view addSubview:newView];
     newView.alpha = 0.7f;
+    if ([views count] == 0) {
+        [self.view addSubview:newView];
+    }
     [views addObject:newView];
     [newView setNeedsDisplay];
 }
@@ -82,8 +87,8 @@
                 transform = CATransform3DRotate(transform, rotationDistance - 0., 0, 1, 0);
                 transform = CATransform3DTranslate(transform, 0, 0, halfWidth);
                 view.layer.transform = transform;
-                [self.view addSubview:view];
             }
+            [self.view addSubview:[views objectAtIndex:(4-(facingSide % 4))%4]];
             [transformLayer removeFromSuperlayer];
             transformLayer = nil;
             startingAngle = 0.0f;
