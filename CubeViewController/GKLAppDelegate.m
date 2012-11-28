@@ -25,6 +25,9 @@
     for (UIColor *color in colors) {
         UIViewController *vc = [[UIViewController alloc] initWithNibName:nil bundle:nil];
         [vc.view setBackgroundColor:color];
+        UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 300, 50)];
+        text.text = [@"View " stringByAppendingFormat:@"%i", [colors indexOfObject:color]];
+        [vc.view addSubview:text];
         [self.viewController addView:vc.view];
     }
     
