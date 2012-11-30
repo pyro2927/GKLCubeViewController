@@ -20,7 +20,7 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    
+//    adding in 4 views of different colors
     NSArray *colors = [NSArray arrayWithObjects:[UIColor blueColor], [UIColor greenColor], [UIColor yellowColor], [UIColor blackColor], nil];
     for (UIColor *color in colors) {
         UIViewController *vc = [[UIViewController alloc] initWithNibName:nil bundle:nil];
