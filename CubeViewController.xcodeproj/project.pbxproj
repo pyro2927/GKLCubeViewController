@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		839FE0C5179B7D8C0029DC85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 839FE0BB179B7D8C0029DC85 /* AppDelegate.m */; };
+		839FE0C6179B7D8C0029DC85 /* ChildFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839FE0BD179B7D8C0029DC85 /* ChildFourViewController.m */; };
+		839FE0C7179B7D8C0029DC85 /* ChildThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839FE0BF179B7D8C0029DC85 /* ChildThreeViewController.m */; };
+		839FE0C8179B7D8C0029DC85 /* ChildTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839FE0C1179B7D8C0029DC85 /* ChildTwoViewController.m */; };
+		839FE0C9179B7D8C0029DC85 /* DemonstrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839FE0C3179B7D8C0029DC85 /* DemonstrationViewController.m */; };
+		839FE0CA179B7D8C0029DC85 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839FE0C4179B7D8C0029DC85 /* MainStoryboard.storyboard */; };
 		D8B32BBF16669A0A00E5DBFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32BBE16669A0A00E5DBFB /* UIKit.framework */; };
 		D8B32BC116669A0A00E5DBFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32BC016669A0A00E5DBFB /* Foundation.framework */; };
 		D8B32BC316669A0A00E5DBFB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32BC216669A0A00E5DBFB /* CoreGraphics.framework */; };
 		D8B32BC916669A0A00E5DBFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BC716669A0A00E5DBFB /* InfoPlist.strings */; };
 		D8B32BCB16669A0A00E5DBFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B32BCA16669A0A00E5DBFB /* main.m */; };
-		D8B32BCF16669A0A00E5DBFB /* GKLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B32BCE16669A0A00E5DBFB /* GKLAppDelegate.m */; };
 		D8B32BD116669A0A00E5DBFB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD016669A0A00E5DBFB /* Default.png */; };
 		D8B32BD316669A0A00E5DBFB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD216669A0A00E5DBFB /* Default@2x.png */; };
 		D8B32BD516669A0A00E5DBFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B32BD416669A0A00E5DBFB /* Default-568h@2x.png */; };
@@ -21,6 +26,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		839FE0BA179B7D8C0029DC85 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		839FE0BB179B7D8C0029DC85 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		839FE0BC179B7D8C0029DC85 /* ChildFourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildFourViewController.h; sourceTree = "<group>"; };
+		839FE0BD179B7D8C0029DC85 /* ChildFourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildFourViewController.m; sourceTree = "<group>"; };
+		839FE0BE179B7D8C0029DC85 /* ChildThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildThreeViewController.h; sourceTree = "<group>"; };
+		839FE0BF179B7D8C0029DC85 /* ChildThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildThreeViewController.m; sourceTree = "<group>"; };
+		839FE0C0179B7D8C0029DC85 /* ChildTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildTwoViewController.h; sourceTree = "<group>"; };
+		839FE0C1179B7D8C0029DC85 /* ChildTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildTwoViewController.m; sourceTree = "<group>"; };
+		839FE0C2179B7D8C0029DC85 /* DemonstrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemonstrationViewController.h; sourceTree = "<group>"; };
+		839FE0C3179B7D8C0029DC85 /* DemonstrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemonstrationViewController.m; sourceTree = "<group>"; };
+		839FE0C4179B7D8C0029DC85 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		839FE0CB179B7DBD0029DC85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D8B32BBA16669A0A00E5DBFB /* CubeViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B32BBE16669A0A00E5DBFB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8B32BC016669A0A00E5DBFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -29,8 +46,6 @@
 		D8B32BC816669A0A00E5DBFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8B32BCA16669A0A00E5DBFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8B32BCC16669A0A00E5DBFB /* CubeViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CubeViewController-Prefix.pch"; sourceTree = "<group>"; };
-		D8B32BCD16669A0A00E5DBFB /* GKLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLAppDelegate.h; sourceTree = "<group>"; };
-		D8B32BCE16669A0A00E5DBFB /* GKLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLAppDelegate.m; sourceTree = "<group>"; };
 		D8B32BD016669A0A00E5DBFB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D8B32BD216669A0A00E5DBFB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D8B32BD416669A0A00E5DBFB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -54,10 +69,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		839FE0B9179B7D8C0029DC85 /* Demonstration */ = {
+			isa = PBXGroup;
+			children = (
+				839FE0BA179B7D8C0029DC85 /* AppDelegate.h */,
+				839FE0BB179B7D8C0029DC85 /* AppDelegate.m */,
+				839FE0BC179B7D8C0029DC85 /* ChildFourViewController.h */,
+				839FE0BD179B7D8C0029DC85 /* ChildFourViewController.m */,
+				839FE0BE179B7D8C0029DC85 /* ChildThreeViewController.h */,
+				839FE0BF179B7D8C0029DC85 /* ChildThreeViewController.m */,
+				839FE0C0179B7D8C0029DC85 /* ChildTwoViewController.h */,
+				839FE0C1179B7D8C0029DC85 /* ChildTwoViewController.m */,
+				839FE0C2179B7D8C0029DC85 /* DemonstrationViewController.h */,
+				839FE0C3179B7D8C0029DC85 /* DemonstrationViewController.m */,
+				839FE0C4179B7D8C0029DC85 /* MainStoryboard.storyboard */,
+			);
+			path = Demonstration;
+			sourceTree = "<group>";
+		};
 		D8B32BAF16669A0A00E5DBFB = {
 			isa = PBXGroup;
 			children = (
-				D8B32BE116669BC700E5DBFB /* QuartzCore.framework */,
+				839FE0CB179B7DBD0029DC85 /* README.md */,
 				D8B32BC416669A0A00E5DBFB /* CubeViewController */,
 				D8B32BBD16669A0A00E5DBFB /* Frameworks */,
 				D8B32BBB16669A0A00E5DBFB /* Products */,
@@ -75,6 +108,7 @@
 		D8B32BBD16669A0A00E5DBFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8B32BE116669BC700E5DBFB /* QuartzCore.framework */,
 				D8B32BBE16669A0A00E5DBFB /* UIKit.framework */,
 				D8B32BC016669A0A00E5DBFB /* Foundation.framework */,
 				D8B32BC216669A0A00E5DBFB /* CoreGraphics.framework */,
@@ -85,10 +119,9 @@
 		D8B32BC416669A0A00E5DBFB /* CubeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D8B32BCD16669A0A00E5DBFB /* GKLAppDelegate.h */,
-				D8B32BCE16669A0A00E5DBFB /* GKLAppDelegate.m */,
 				D8B32BD616669A0A00E5DBFB /* GKLCubeViewController.h */,
 				D8B32BD716669A0A00E5DBFB /* GKLCubeViewController.m */,
+				839FE0B9179B7D8C0029DC85 /* Demonstration */,
 				D8B32BC516669A0A00E5DBFB /* Supporting Files */,
 			);
 			path = CubeViewController;
@@ -164,6 +197,7 @@
 				D8B32BD116669A0A00E5DBFB /* Default.png in Resources */,
 				D8B32BD316669A0A00E5DBFB /* Default@2x.png in Resources */,
 				D8B32BD516669A0A00E5DBFB /* Default-568h@2x.png in Resources */,
+				839FE0CA179B7D8C0029DC85 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +209,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B32BCB16669A0A00E5DBFB /* main.m in Sources */,
-				D8B32BCF16669A0A00E5DBFB /* GKLAppDelegate.m in Sources */,
 				D8B32BD816669A0A00E5DBFB /* GKLCubeViewController.m in Sources */,
+				839FE0C5179B7D8C0029DC85 /* AppDelegate.m in Sources */,
+				839FE0C6179B7D8C0029DC85 /* ChildFourViewController.m in Sources */,
+				839FE0C7179B7D8C0029DC85 /* ChildThreeViewController.m in Sources */,
+				839FE0C8179B7D8C0029DC85 /* ChildTwoViewController.m in Sources */,
+				839FE0C9179B7D8C0029DC85 /* DemonstrationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,36 +1,18 @@
 //
-//  GKLAppDelegate.m
+//  AppDelegate.m
 //  CubeViewController
 //
-//  Created by Joseph Pintozzi on 11/28/12.
-//  Copyright (c) 2012 GoKart Labs. All rights reserved.
+//  Created by Robert Ryan on 7/20/13.
+//  Copyright (c) 2013 GoKart Labs. All rights reserved.
 //
 
-#import "GKLAppDelegate.h"
+#import "AppDelegate.h"
 
-#import "GKLCubeViewController.h"
-
-@implementation GKLAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[GKLCubeViewController alloc] initWithNibName:nil bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    
-//    adding in 4 views of different colors
-    NSArray *colors = [NSArray arrayWithObjects:[UIColor blueColor], [UIColor greenColor], [UIColor yellowColor], [UIColor blackColor], nil];
-    for (UIColor *color in colors) {
-        UIViewController *vc = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-        [vc.view setBackgroundColor:color];
-        UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 300, 50)];
-        text.text = [@"View " stringByAppendingFormat:@"%i", [colors indexOfObject:color]];
-        [vc.view addSubview:text];
-        [self.viewController addView:vc.view];
-    }
-    
     return YES;
 }
 
@@ -42,7 +24,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
