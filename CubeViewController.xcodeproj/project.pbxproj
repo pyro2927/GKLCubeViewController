@@ -74,14 +74,14 @@
 			children = (
 				839FE0BA179B7D8C0029DC85 /* AppDelegate.h */,
 				839FE0BB179B7D8C0029DC85 /* AppDelegate.m */,
-				839FE0BC179B7D8C0029DC85 /* ChildFourViewController.h */,
-				839FE0BD179B7D8C0029DC85 /* ChildFourViewController.m */,
-				839FE0BE179B7D8C0029DC85 /* ChildThreeViewController.h */,
-				839FE0BF179B7D8C0029DC85 /* ChildThreeViewController.m */,
-				839FE0C0179B7D8C0029DC85 /* ChildTwoViewController.h */,
-				839FE0C1179B7D8C0029DC85 /* ChildTwoViewController.m */,
 				839FE0C2179B7D8C0029DC85 /* DemonstrationViewController.h */,
 				839FE0C3179B7D8C0029DC85 /* DemonstrationViewController.m */,
+				839FE0C0179B7D8C0029DC85 /* ChildTwoViewController.h */,
+				839FE0C1179B7D8C0029DC85 /* ChildTwoViewController.m */,
+				839FE0BE179B7D8C0029DC85 /* ChildThreeViewController.h */,
+				839FE0BF179B7D8C0029DC85 /* ChildThreeViewController.m */,
+				839FE0BC179B7D8C0029DC85 /* ChildFourViewController.h */,
+				839FE0BD179B7D8C0029DC85 /* ChildFourViewController.m */,
 				839FE0C4179B7D8C0029DC85 /* MainStoryboard.storyboard */,
 			);
 			path = Demonstration;

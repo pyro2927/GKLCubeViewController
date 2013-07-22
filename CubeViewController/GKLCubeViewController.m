@@ -97,6 +97,15 @@ CGFloat const kDuration    =  0.4f;
     }
 }
 
+- (void)rotateAllSidesBy:(double)rotation
+{
+    [self.childViewControllers enumerateObjectsUsingBlock:^(UIViewController *controller, NSUInteger idx, BOOL *stop) {
+        CGFloat startingAngle = ((idx + _facingSide) % 4) * M_PI_2;
+
+        [self rotateCubeSideForViewController:controller byAngle:startingAngle+rotation applyPerspective:YES];
+    }];
+}
+
 #pragma mark - Gesture Recognizer
 
 - (void)handlePan:(UIPanGestureRecognizer*)gesture
@@ -109,12 +118,8 @@ CGFloat const kDuration    =  0.4f;
     {
         // iterate through the child controllers, adjusting their views
 
-        [self.childViewControllers enumerateObjectsUsingBlock:^(UIViewController *controller, NSUInteger idx, BOOL *stop) {
-            CGFloat startingAngle = ((idx + _facingSide) % 4) * M_PI_2;
-            double adjustmentAngle = percentageOfWidth * M_PI_2 + startingAngle;
-
-            [self rotateCubeSideForViewController:controller byAngle:adjustmentAngle applyPerspective:YES];
-        }];
+        double rotation = percentageOfWidth * M_PI_2;
+        [self rotateAllSidesBy:rotation];
     }
 
     if (gesture.state == UIGestureRecognizerStateEnded ||
@@ -178,14 +183,9 @@ CGFloat const kDuration    =  0.4f;
     {
         // if animation is still in progress, then update to show progress
 
-        CGFloat currentAngle = (self.targetAngle - self.startAngle) * percentComplete + self.startAngle;
-
-        [self.childViewControllers enumerateObjectsUsingBlock:^(UIViewController *controller, NSUInteger idx, BOOL *stop) {
-            CGFloat startingAngle = ((idx + _facingSide) % 4) * M_PI_2;
-            double adjustmentAngle = currentAngle + startingAngle;
-
-            [self rotateCubeSideForViewController:controller byAngle:adjustmentAngle applyPerspective:YES];
-        }];
+        CGFloat rotation = (self.targetAngle - self.startAngle) * percentComplete + self.startAngle;
+        
+        [self rotateAllSidesBy:rotation];
     }
     else
     {
@@ -196,10 +196,7 @@ CGFloat const kDuration    =  0.4f;
         CGFloat faceAdjustment = self.targetAngle / M_PI_2;
         self.facingSide = (int)floorf(faceAdjustment + self.facingSide + 4.5) % 4;
 
-        [self.childViewControllers enumerateObjectsUsingBlock:^(UIViewController *controller, NSUInteger idx, BOOL *stop) {
-            CGFloat startingAngle = ((idx + _facingSide) % 4) * M_PI_2;
-            [self rotateCubeSideForViewController:controller byAngle:startingAngle applyPerspective:YES];
-        }];
+        [self rotateAllSidesBy:0.0];
     }
 }
 

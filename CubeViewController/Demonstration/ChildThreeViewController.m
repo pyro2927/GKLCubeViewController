@@ -23,12 +23,19 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)cubeViewDidUnhide
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self stopTimer];
+}
+
+#pragma mark - Timer methods
+
+- (void)startTimer
 {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
 }
 
-- (void)cubeViewDidHide
+- (void)stopTimer
 {
     [self.timer invalidate];
     self.timer = nil;
@@ -45,6 +52,18 @@
     });
     
     self.timeLabel.text = [timeFormat stringFromDate:[NSDate date]];
+}
+
+#pragma mark - GKLCubeViewControllerDelegate
+
+- (void)cubeViewDidUnhide
+{
+    [self startTimer];
+}
+
+- (void)cubeViewDidHide
+{
+    [self stopTimer];
 }
 
 @end

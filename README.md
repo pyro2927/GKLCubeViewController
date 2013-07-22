@@ -3,7 +3,7 @@ GKLCubeViewController
 
 ### Introduction
 
-This is custom container controller that lets you navigate through a series of child view controllers represented as sides of a cube that you swipe/pan to rotate to navigate from one view to another. This is a simplied user interface rendition of the user interface popularized by the [WeatherCube](http://www.weathercube.com) app.
+This is custom container controller that lets you navigate through a series of child view controllers represented as sides of a cube that you swipe/pan to rotate to navigate from one view to another. This is a simplied user interface rendition of the user interface popularized by the [WeatherCube](http://www.weathercube.com) app (except this rotates the entire view, not just a portion of a view).
 
 ### How To Use
 
@@ -56,7 +56,7 @@ This demonstration project uses four random scenes from a storyboard. In this ca
 - The first is largely blank;
 - The second has a table view populated by `ChildTwoViewController`;
 - The third uses a `NSTimer` to update the time (and illustrates the use of `GKLCubeViewControllerDelegate` protocol in `ChildThreeViewController`); and
-- The fourth simply draws a circle on the view (in ``ChildFourViewController`).
+- The fourth simply draws a circle on the view (in `ChildFourViewController`).
 
 ### Change history
 
@@ -72,7 +72,7 @@ This demonstration project uses four random scenes from a storyboard. In this ca
 
 5. Add `GKLCubeViewControllerDelegate` protocol. If the child controllers implement `cubeViewDidHide` and/or `cubeViewDidUnhide`, that will be called as the view rotates out of view and back into view.
 
- In demonstration, child three uses
+ In the demonstration project, the third child view controller employs this protocol to identify when to start and stop a repeating timer.
 
 28 November 2012. [pyro2927](https://github.com/pyro2927). Created, inspired by [augustjoki](https://github.com/augustjoki)'s original [CubeTabBarController](https://github.com/augustjoki/CubeTabBarController)
 
@@ -84,6 +84,6 @@ This expects four child view controllers. It won't work if you have more than fo
 
 If you're interested in doing diagnostics to understand when views are rotated and when they're hidden, you can always change the line in `rotateCubeSideForView` in `GKLCubViewController.m` from an alpha of `1.0` to something lower, e.g. `0.7f`, so you get some visual queues about what's going on.
 
-[Note, the below animation shows what was going on if you render all four sides of the cube. But for performance reasons, we only render the front ones. -- Rob]
+[Note, the below animation illustrates what was happening when render all four sides of the cube were rendered with a reduced alpha. But for performance reasons, this class now only renders the front views. -- Rob]
 
 ![](https://raw.github.com/pyro2927/GKLCubeViewController/master/cube.gif)
