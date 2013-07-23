@@ -33,9 +33,6 @@
     
     controller = [self.storyboard instantiateViewControllerWithIdentifier:@"child3"];
     [self addCubeSideForChildController:controller];
-    
-    controller = [self.storyboard instantiateViewControllerWithIdentifier:@"child4"];
-    [self addCubeSideForChildController:controller];
 }
 
 
