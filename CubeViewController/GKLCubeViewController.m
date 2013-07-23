@@ -9,7 +9,7 @@
 #import "GKLCubeViewController.h"
 
 CGFloat const kPerspective = -0.001f;
-CGFloat const kDuration    =  0.4f;
+CGFloat const kDuration    =  0.3f;
 
 @interface GKLCubeViewController ()
 
@@ -24,14 +24,52 @@ CGFloat const kDuration    =  0.4f;
 
 // display link state properties
 
-@property (nonatomic)         CFTimeInterval  animationDuration;
+@property (nonatomic)         CFTimeInterval  remainingAnimationDuration;
 @property (nonatomic)         CGFloat         startAngle;
 @property (nonatomic)         CGFloat         targetAngle;
+
+// views for dimming the sides as the cube is rotated
+
+@property (nonatomic, strong) UIView *leftDimmingView;
+@property (nonatomic, strong) UIView *rightDimmingView;
 
 @end
 
 
 @implementation GKLCubeViewController
+
+- (void)configureProperties
+{
+    _animationDuration = kDuration;
+    _perspective = kPerspective;
+    _facingSide = 0;
+
+    _leftDimmingView = [[UIView alloc] init];
+    _leftDimmingView.userInteractionEnabled = NO;
+    _leftDimmingView.backgroundColor = [UIColor blackColor];
+
+    _rightDimmingView = [[UIView alloc] init];
+    _rightDimmingView.userInteractionEnabled = NO;
+    _rightDimmingView.backgroundColor = [UIColor blackColor];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self configureProperties];
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self configureProperties];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -41,66 +79,115 @@ CGFloat const kDuration    =  0.4f;
 
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:pan];
+}
 
-    self.facingSide = 0;
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self rotateAllSidesBy:0.0f];
 }
 
 #pragma mark - Management of cube sides
 
 - (void)addCubeSideForChildController:(UIViewController *)controller
 {
-    double angle = [self.childViewControllers count] * M_PI_2;
-
     [self addChildViewController:controller];          // necessary custom container call
+
     controller.view.frame = self.view.bounds;
     controller.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.view addSubview:controller.view];
-    controller.view.alpha = 0.0;
+
+    NSInteger numberOfSides = [self sides];
+    CGFloat angle = (numberOfSides == 1 ? 0.0f : M_PI);
+
     [self rotateCubeSideForViewController:controller
                                   byAngle:angle
                          applyPerspective:YES];
+
     [controller didMoveToParentViewController:self];   // necessary custom container call
 }
 
 - (void)rotateCubeSideForViewController:(UIViewController *)controller byAngle:(CGFloat)angle applyPerspective:(BOOL)applyPerspective
 {
-    while (angle > M_PI) angle -= (M_PI * 2.0);
+    // make sure angle is within reasonable range of values
 
-    if (angle <= -M_PI_2 || angle >= M_PI_2)
+    while (angle > M_PI)  angle -= (M_PI * 2.0);
+    while (angle < -M_PI) angle += (M_PI * 2.0);
+
+    // see if the side of the cube is even visible
+
+    CGFloat minAngle = MIN(M_PI_2, M_PI * 2.0 / [self sides]);
+
+    if (angle <= -minAngle || angle >= minAngle)
     {
-        if (controller.view.alpha != 0.0)
-        {
-            controller.view.alpha = 0.0;
+        // if not, hide if (if not already) and then quit
 
-            if ([controller respondsToSelector:@selector(cubeViewDidHide)])
-                [(id<GKLCubeViewControllerDelegate>)controller cubeViewDidHide];
+        if (controller.view.superview)
+        {
+            [controller.view removeFromSuperview];
         }
         return;
     }
 
-    double halfWidth = self.view.bounds.size.width / 2.0;
-    CGFloat perspective = kPerspective;
-    CATransform3D transform = CATransform3DIdentity;
-    if (applyPerspective) transform.m34 = perspective;
-    transform = CATransform3DTranslate(transform, 0, 0, -halfWidth);
-    transform = CATransform3DRotate(transform, angle, 0, 1, 0);
-    transform = CATransform3DTranslate(transform, 0, 0, halfWidth);
-    controller.view.layer.transform = transform;
+    // otherwise if the view is hidden, show it
 
-    if (controller.view.alpha == 0.0)
+    if (!controller.view.superview)
     {
-        controller.view.alpha = 1.0;
-        controller.view.frame = controller.view.superview.bounds;
+        [self.view addSubview:controller.view];
+        controller.view.frame = self.view.bounds;
+    }
 
-        if ([controller respondsToSelector:@selector(cubeViewDidUnhide)])
-            [(id<GKLCubeViewControllerDelegate>)controller cubeViewDidUnhide];
+    if (angle != 0.0f)
+    {
+        // if the angle is non-zero, then do all the complicated 3D transform stuff ...
+
+        CGFloat halfWidth = self.view.bounds.size.width / 2.0;
+        NSInteger sides = [self.childViewControllers count];
+        CGFloat theta = M_PI / sides;
+        CGFloat z = halfWidth / tan(theta);
+
+        CATransform3D transform = CATransform3DIdentity;
+        if (applyPerspective) transform.m34 = self.perspective;
+        transform = CATransform3DTranslate(transform, 0, 0, -z);
+        transform = CATransform3DRotate(transform, angle, 0, 1, 0);
+        transform = CATransform3DTranslate(transform, 0, 0, z);
+        controller.view.layer.transform = transform;
+
+        // ... and then set up the appropriate dimming views
+        
+        UIView *fadingView = (angle < 0.0 ? _leftDimmingView : _rightDimmingView);
+        if ([fadingView superview] != controller.view)
+        {
+            [controller.view addSubview:fadingView];
+            fadingView.frame = controller.view.bounds;
+        }
+        fadingView.alpha = MIN(fabs(angle / M_PI), 0.5);
+    }
+    else
+    {
+        // if the angle is zero, then we can just set the transform to identity ...
+
+        controller.view.layer.transform = CATransform3DIdentity;
+
+        // ... and also get rid of the dimming views
+        
+        if (_leftDimmingView.superview)  [_leftDimmingView  removeFromSuperview];
+
+        if (_rightDimmingView.superview) [_rightDimmingView removeFromSuperview];
     }
 }
 
-- (void)rotateAllSidesBy:(double)rotation
+- (NSInteger)sides
 {
+    return [self.childViewControllers count];
+}
+
+- (void)rotateAllSidesBy:(CGFloat)rotation
+{
+    NSInteger sides = [self.childViewControllers count];
+
     [self.childViewControllers enumerateObjectsUsingBlock:^(UIViewController *controller, NSUInteger idx, BOOL *stop) {
-        CGFloat startingAngle = ((idx + _facingSide) % 4) * M_PI_2;
+        CGFloat startingAngle = ((idx + _facingSide) % sides) * M_PI * 2.0f / sides;
 
         [self rotateCubeSideForViewController:controller byAngle:startingAngle+rotation applyPerspective:YES];
     }];
@@ -118,7 +205,7 @@ CGFloat const kDuration    =  0.4f;
     {
         // iterate through the child controllers, adjusting their views
 
-        double rotation = percentageOfWidth * M_PI_2;
+        double rotation = percentageOfWidth * M_PI * 2.0f / [self sides];
         [self rotateAllSidesBy:rotation];
     }
 
@@ -131,15 +218,15 @@ CGFloat const kDuration    =  0.4f;
 
         double percentageOfWidthIncludingVelocity = (translation.x + 0.25 * velocity.x) / self.view.frame.size.width;
 
-        self.startAngle = percentageOfWidth * M_PI_2;
+        self.startAngle = percentageOfWidth * M_PI * 2.0f / [self sides];
 
         // if moved left (and/or flicked left)
         if (translation.x < 0 && percentageOfWidthIncludingVelocity < -0.5)
-            self.targetAngle = -M_PI_2;
+            self.targetAngle = -M_PI * 2.0f / [self sides];
 
         // if moved right (and/or flicked right)
         else if (translation.x > 0 && percentageOfWidthIncludingVelocity > 0.5)
-            self.targetAngle = M_PI_2;
+            self.targetAngle = M_PI * 2.0f / [self sides];
 
         // otherwise, move back to zero
         else
@@ -164,7 +251,7 @@ CGFloat const kDuration    =  0.4f;
 {
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink:)];
     self.startTime = CACurrentMediaTime();
-    self.animationDuration = fabsf(self.targetAngle - self.startAngle) / M_PI_2 * kDuration;
+    self.remainingAnimationDuration = fabsf(self.targetAngle - self.startAngle) / (M_PI * 2.0 / [self sides]) * self.animationDuration;
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
@@ -177,14 +264,14 @@ CGFloat const kDuration    =  0.4f;
 - (void)handleDisplayLink:(CADisplayLink *)displayLink
 {
     CFTimeInterval elapsed = CACurrentMediaTime() - self.startTime;
-    CGFloat percentComplete = (elapsed / self.animationDuration);
+    CGFloat percentComplete = (elapsed / self.remainingAnimationDuration);
 
     if (percentComplete >= 0.0 && percentComplete < 1.0)
     {
         // if animation is still in progress, then update to show progress
 
         CGFloat rotation = (self.targetAngle - self.startAngle) * percentComplete + self.startAngle;
-        
+
         [self rotateAllSidesBy:rotation];
     }
     else
@@ -193,9 +280,9 @@ CGFloat const kDuration    =  0.4f;
 
         [self stopDisplayLink];
 
-        CGFloat faceAdjustment = self.targetAngle / M_PI_2;
-        self.facingSide = (int)floorf(faceAdjustment + self.facingSide + 4.5) % 4;
-
+        CGFloat faceAdjustment = self.targetAngle / (M_PI * 2.0f / [self sides]);
+        self.facingSide = (int)floorf(faceAdjustment + self.facingSide + [self sides] + 0.5) % [self sides];
+        
         [self rotateAllSidesBy:0.0];
     }
 }

@@ -9,7 +9,7 @@
 #import "ChildThreeViewController.h"
 #import "GKLCubeViewController.h"
 
-@interface ChildThreeViewController () <GKLCubeViewControllerDelegate>
+@interface ChildThreeViewController ()
 
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -23,8 +23,15 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self startTimer];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self stopTimer];
 }
 
@@ -52,18 +59,6 @@
     });
     
     self.timeLabel.text = [timeFormat stringFromDate:[NSDate date]];
-}
-
-#pragma mark - GKLCubeViewControllerDelegate
-
-- (void)cubeViewDidUnhide
-{
-    [self startTimer];
-}
-
-- (void)cubeViewDidHide
-{
-    [self stopTimer];
 }
 
 @end

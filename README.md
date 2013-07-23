@@ -60,6 +60,14 @@ This demonstration project uses four random scenes from a storyboard. In this ca
 
 ### Change history
 
+22 July 2013. Robert M. Ryan.
+
+1. Allowed for a variable number of child controllers (two or greater). So, if there are four sides, you get the historical "cube" effect. If there are three, the effect is one of rotating a triangular prism. If there are two, the effect is one of flipping card. If there are five, the effect is one of rotating a pentagonal prism. Etc.
+
+2. As you rotate the views, it dims the views as you rotate them, enriching the 3D effect.
+
+3. Retire custom protocol for notifying child when sides of the cube spin into view with standard `viewWillAppear`/`viewDidAppear` and `viewWillDisappear`/`viewDidDisappear` methods.
+
 20 July 2013. Robert M. Ryan. Addressing a number of issues:
 
 1. There was a serious performance penalty resulting from using a `CATransformLayer` in conjunction with views that already had `transform` properties on their layers. When performing gesture, it was very sluggish.
@@ -70,15 +78,17 @@ This demonstration project uses four random scenes from a storyboard. In this ca
 
 4. Only perform transforms on the two visible sides of the cube (since only two are visible at any given time) and hide the others.
 
-5. Add `GKLCubeViewControllerDelegate` protocol. If the child controllers implement `cubeViewDidHide` and/or `cubeViewDidUnhide`, that will be called as the view rotates out of view and back into view.
-
- In the demonstration project, the third child view controller employs this protocol to identify when to start and stop a repeating timer.
+5. <strike>Add `GKLCubeViewControllerDelegate` protocol. If the child controllers implement `cubeViewDidHide` and/or `cubeViewDidUnhide`, that will be called as the view rotates out of view and back into view. In the demonstration project, the third child view controller employs this protocol to identify when to start and stop a repeating timer.</strike> [The views now are added and removed from the view hierarchy as they spin into view, and the standard `viewDidAppear`/`viewDidDisappear` methods are called.]
 
 28 November 2012. [pyro2927](https://github.com/pyro2927). Created, inspired by [augustjoki](https://github.com/augustjoki)'s original [CubeTabBarController](https://github.com/augustjoki/CubeTabBarController)
 
-### Known limitations
+### Potential open items
 
-This expects four child view controllers. It won't work if you have more than four, and you'll see a "blank" side of the cube if you have less than that.
+1. Right now, as the cube is rotated, it appears to rotate about the y-axis of the screen, whereby the near edge grows beyond the physical screen as the far edge shrinks. Alternatively, we could have the longest edge of the rotated view never grow larger than the physical screen.
+
+2. This could conceivably employ an interface like a `UITabBarController`, whereby we have some delegate protocol to request child view controllers as they're needed. Right now you have to load all of the view controllers and their views in advance.
+
+3. Right now, this class employs its own delegate protocol
 
 ### Transparency
 
