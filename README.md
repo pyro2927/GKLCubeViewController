@@ -3,21 +3,27 @@ GKLCubeViewController
 
 ### Introduction
 
+This project was originally started as a UI proof-of-concept at [GoKart Labs](http://gokartlabs.com/), which is where the `GKL` prefix comes from. The project was scrapped, and I decided to release the code so it wouldn't be wasted.
+
 This is custom container controller that lets you navigate through a series of child view controllers represented as sides of a cube that you swipe/pan to rotate to navigate from one view to another. This is a simplied user interface rendition of the user interface popularized by the [WeatherCube](http://www.weathercube.com) app (except this rotates the entire view, not just a portion of a view).
 
 ### How To Use
 
-1. Copy `GKLCubeViewController.h` and `GKLCubeViewController.m` to your project.
+#### Installation
 
-2. Add `QuartzCore.framework` to your project. See [Linking to a Library or Framework](http://developer.apple.com/library/ios/#recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html).
+1a. Copy `GKLCubeViewController.h` and `GKLCubeViewController.m` to your project. Add `QuartzCore.framework` to your project. See [Linking to a Library or Framework](http://developer.apple.com/library/ios/#recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html).
 
-3. Initialize an instance of `GKLCubeViewController`. You could simply create an instance of it in your app delegate:
+1b. Use [CocoaPods](http://cocoapods.org/): `pod 'GKLCubeViewController', :git => "https://github.com/pyro2927/GKLCubeViewController.git"`
+
+#### Code
+
+2. Initialize an instance of `GKLCubeViewController`. You could simply create an instance of it in your app delegate:
 
     	GKLCubeViewController *cubeViewController = [[GKLCubeViewController alloc] initWithNibName:nil bundle:nil];
         
  Or, as this demonstration does, you could create your own subclass of `GKLCubeViewController` and use that in your storyboard/NIB.
 	
-4. Add the child view controllers representing the four sides of the cube:
+3. Add the child view controllers representing the four sides of the cube:
 
         [cubeViewController addCubeSideForChildController:childController];
 
@@ -47,7 +53,7 @@ This is custom container controller that lets you navigate through a series of c
             [self addCubeSideForChildController:controller];
         }
         
-5. If needed, child view controllers can conform to the `GKLCubeViewControllerDelegate` protocol and implement either `cubeViewDidUnhide` or `cubeViewDidHide` to be notified as the view appears. Note, as you start to rotate a controller into view, you may see these methods be called a little before you can actually see the view (because of perspective, the front of the cube will continue to obscure the side for a bit).
+4. If needed, child view controllers can conform to the `GKLCubeViewControllerDelegate` protocol and implement either `cubeViewDidUnhide` or `cubeViewDidHide` to be notified as the view appears. Note, as you start to rotate a controller into view, you may see these methods be called a little before you can actually see the view (because of perspective, the front of the cube will continue to obscure the side for a bit).
 
 And that's it! You can start spinning your view cube (OK, I guess technically it's a rectangular prism) by sliding your finger left/right on the app.
 
@@ -59,6 +65,8 @@ This demonstration project uses four random scenes from a storyboard. In this ca
 - The fourth simply draws a circle on the view (in `ChildFourViewController`).
 
 ### Change history
+
+23 July 2013. Updating README, adding in Podspec
 
 20 July 2013. Robert M. Ryan. Addressing a number of issues:
 
@@ -78,12 +86,8 @@ This demonstration project uses four random scenes from a storyboard. In this ca
 
 ### Known limitations
 
-This expects four child view controllers. It won't work if you have more than four, and you'll see a "blank" side of the cube if you have less than that.
+This expects four child view controllers. It won't work if you have more than four, and you'll see a "blank" side of the cube if you have less than that.  We are [working on supporting](https://github.com/pyro2927/GKLCubeViewController/tree/non-cube-support) an arbitrary number of sides.
 
-### Transparency
-
-If you're interested in doing diagnostics to understand when views are rotated and when they're hidden, you can always change the line in `rotateCubeSideForView` in `GKLCubViewController.m` from an alpha of `1.0` to something lower, e.g. `0.7f`, so you get some visual queues about what's going on.
-
-[Note, the below animation illustrates what was happening when render all four sides of the cube were rendered with a reduced alpha. But for performance reasons, this class now only renders the front views. -- Rob]
+### Example
 
 ![](https://raw.github.com/pyro2927/GKLCubeViewController/master/cube.gif)
