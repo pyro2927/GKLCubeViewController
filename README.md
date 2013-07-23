@@ -11,9 +11,11 @@ This is custom container controller that lets you navigate through a series of c
 
 #### Installation
 
-1a. Copy `GKLCubeViewController.h` and `GKLCubeViewController.m` to your project. Add `QuartzCore.framework` to your project. See [Linking to a Library or Framework](http://developer.apple.com/library/ios/#recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html).
+##### Hard way
+Copy `GKLCubeViewController.h` and `GKLCubeViewController.m` to your project. Add `QuartzCore.framework` to your project. See [Linking to a Library or Framework](http://developer.apple.com/library/ios/#recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html).
 
-1b. Use [CocoaPods](http://cocoapods.org/): `pod 'GKLCubeViewController', :git => "https://github.com/pyro2927/GKLCubeViewController.git"`
+##### Easy way
+Use [CocoaPods](http://cocoapods.org/): `pod 'GKLCubeViewController', :git => "https://github.com/pyro2927/GKLCubeViewController.git"`
 
 #### Code
 
